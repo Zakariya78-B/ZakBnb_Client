@@ -1,0 +1,16 @@
+<p>home works!</p>
+
+<div class="row" *ngIf="bungalows">
+    <div class="col-md-4" *ngFor="let b of bungalows._embedded.bungalows">
+        <div class="card">
+            <img src="{{b.photoName}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{b.name}}</h5>
+              <p class="card-text">{{b.description | slice:0:20}} ...</p>
+              <p class="card-text"><span class="text-muted font-weight-bold">{{b.currentPrice | number:'0.00'}}</span></p>
+              
+            </div>
+            <a href="#" class="btn btn-primary" style="width: 100%;">Booking ! <i class="fas fa-check-circle pl-4"></i></a>
+          </div>
+    </div>
+</div>

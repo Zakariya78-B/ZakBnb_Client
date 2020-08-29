@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Camping!</a>
+  <a class="navbar-brand" routerLink="/">Camping!</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,21 +7,22 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <!-- <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a> -->
       </li>
    
      
     </ul>
     <ul class="navbar-nav pull-right ml-4">
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
+        <a class="nav-link" routerLink="/login">Login <span class="sr-only">(current)</span></a>
+        <a class="nav-link dropdown-toggle" routerLink="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dashboard !
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" routerLink="/booking">Mes reservation</a>
+          <a class="dropdown-item" routerLink="/dashboard">Mes Bungalows</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" routerLink="/logout">Logout</a>
         </div>
       </li>
   
@@ -29,3 +30,13 @@
  
   </div>
 </nav>
+<div class="row"*ngIf="categories">
+    <div class="col-sm-3" >     
+        <ul class="list-group pt-4" >
+          <li class="list-group-item"*ngFor="let c of categories._embedded.categories">{{c.name}}</li> 
+        </ul>      
+    </div>
+    <div class="col-sm-9">
+        <router-outlet></router-outlet>
+    </div>
+</div>
